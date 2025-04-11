@@ -34,6 +34,12 @@ GHMC_TOLL_FREE = "040-21111111"
 GHMC_WHATSAPP = "9848021665"
 GHMC_EMAIL = "complaints@ghmc.gov.in"
 
+st.set_page_config(
+    page_title="Pothole Detection System",
+    page_icon="🛣️",
+    layout="wide",
+    initial_sidebar_state="expanded"
+)
 def get_location_from_ip():
     try:
         response = requests.get('https://ipapi.co/json/')
@@ -311,12 +317,7 @@ def generate_ghmc_report(detection_data, images, location_info):
     return pdf_path
 
 # Set page configuration
-st.set_page_config(
-    page_title="Pothole Detection System",
-    page_icon="🛣️",
-    layout="wide",
-    initial_sidebar_state="expanded"
-)
+
 
 # Custom CSS to beautify the app
 st.markdown("""
