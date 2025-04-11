@@ -2,13 +2,13 @@ import streamlit as st
 import sys
 import os
 
-# Show a startup message
-# st.set_page_config(
-#     page_title="Pothole Detection System",
-#     page_icon="🛣️",
-#     layout="wide",
-#     initial_sidebar_state="expanded"
-# )
+Show a startup message
+st.set_page_config(
+    page_title="Pothole Detection System",
+    page_icon="🛣️",
+    layout="wide",
+    initial_sidebar_state="expanded"
+)
 
 # Show a loading indicator
 with st.spinner("Loading application dependencies..."):
