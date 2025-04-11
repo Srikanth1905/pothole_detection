@@ -1,6 +1,8 @@
 [server]
 maxUploadSize = 200
 maxMessageSize = 200
+enableXsrfProtection = false
+enableCORS = false
 
 [browser]
 gatherUsageStats = false
@@ -9,4 +11,11 @@ gatherUsageStats = false
 primaryColor = "#0066cc"
 backgroundColor = "#f8f9fa"
 secondaryBackgroundColor = "#e9ecef"
-textColor = "#4a4a4a" 
+textColor = "#4a4a4a"
+
+[runner]
+magicEnabled = true
+fastReruns = true
+
+[logger]
+level = "info" 
