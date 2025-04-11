@@ -2,7 +2,7 @@ import streamlit as st
 import sys
 import os
 
-Show a startup message
+# Show a startup message
 st.set_page_config(
     page_title="Pothole Detection System",
     page_icon="🛣️",
