@@ -48,9 +48,10 @@ with st.spinner("Loading application dependencies..."):
             import torch
             from ultralytics.nn.tasks import DetectionModel
             from torch.nn.modules.container import Sequential
+            from ultralytics.nn.modules.conv import Conv
             
             # Fix for PyTorch 2.6 weights loading issue
-            torch.serialization.add_safe_globals([DetectionModel, Sequential])
+            torch.serialization.add_safe_globals([DetectionModel, Sequential, Conv])
             
             # If all imports successful, import the main app
             from app import *

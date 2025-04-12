@@ -31,9 +31,10 @@ from reportlab.lib.units import inch
 import torch
 from ultralytics.nn.tasks import DetectionModel
 from torch.nn.modules.container import Sequential
+from ultralytics.nn.modules.conv import Conv
 
 # Add DetectionModel and Sequential to safe globals for PyTorch 2.6 compatibility
-torch.serialization.add_safe_globals([DetectionModel, Sequential])
+torch.serialization.add_safe_globals([DetectionModel, Sequential, Conv])
 
 # GHMC Constants
 GHMC_TOLL_FREE = "040-21111111"
