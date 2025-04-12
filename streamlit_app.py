@@ -45,6 +45,11 @@ with st.spinner("Loading application dependencies..."):
             from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Image as RLImage, Table, TableStyle
             from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
             from reportlab.lib.units import inch
+            import torch
+            from ultralytics.nn.tasks import DetectionModel
+            
+            # Fix for PyTorch 2.6 weights loading issue
+            torch.serialization.add_safe_globals([DetectionModel])
             
             # If all imports successful, import the main app
             from app import *
