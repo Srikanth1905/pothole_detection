@@ -28,6 +28,11 @@ from reportlab.lib import colors
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Image as RLImage, Table, TableStyle
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib.units import inch
+import torch
+from ultralytics.nn.tasks import DetectionModel
+
+# Add DetectionModel to safe globals for PyTorch 2.6 compatibility
+torch.serialization.add_safe_globals([DetectionModel])
 
 # GHMC Constants
 GHMC_TOLL_FREE = "040-21111111"
