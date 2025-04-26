@@ -388,7 +388,17 @@ def load_model():
     if not model_path.exists():
         st.error("Model not found. Please make sure the model is located at 'runs/train/pothole_detector/weights/best.pt'")
         return None
-    return YOLO(model_path)
+    try:
+        # Try loading the model (ultralytics internally uses torch.load)
+        return YOLO(model_path)
+    except RuntimeError as e:
+        # If weights_only error occurs, try to fix it
+        if "weights_only" in str(e) or "Unsupported global" in str(e):
+            try:
+                from ultralytics.nn.modules.conv import Conv
+                import torch
+                with torch.serialization.safe_globals([Conv]):
+                    return YOLO(model_path)
 
 # Function to process an image
 def process_image(image, model):
